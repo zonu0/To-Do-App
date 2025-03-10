@@ -91,4 +91,17 @@ function generatePDF() {
         doc.text(`Description: ${task.description}`, 14, yPosition + 20);
         doc.text(`Deadline: ${task.deadlineDate}`, 14, yPosition + 30);
         doc.text(`Status: ${task.status}`, 14, yPosition + 40);
-        yPosition += 50;  // Increa
+        yPosition += 50;  // Increase position for next task
+    });
+
+    doc.save("tasks_summary.pdf");
+}
+
+// Add event listener for Add Task button
+addTaskBtn.addEventListener('click', addTask);
+
+// Add event listener for Download PDF button
+downloadPdfBtn.addEventListener('click', generatePDF);
+
+// Load tasks when the page loads
+document.addEventListener('DOMContentLoaded', loadTasks);
